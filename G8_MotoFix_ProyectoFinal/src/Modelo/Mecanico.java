@@ -7,6 +7,7 @@ public class Mecanico {
     int añosExperiencia;
     boolean estado;
 
+    
     public String getNombre() {
         return nombre;
     }

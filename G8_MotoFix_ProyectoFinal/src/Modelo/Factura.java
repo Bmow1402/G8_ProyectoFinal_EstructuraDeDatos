@@ -48,7 +48,5 @@ public class Factura {
         this.activa = activa;
     }
     
-    
-    
-    
+       
 }
