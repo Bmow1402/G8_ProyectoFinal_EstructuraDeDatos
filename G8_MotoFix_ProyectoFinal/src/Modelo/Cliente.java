@@ -12,9 +12,7 @@ public class Cliente {
         this.nickname = nickname;
         this.password = password;
         this.activo = true;
-    }
-
-    
+    }    
 
     public String getNombreCompleto() {
         return nombreCompleto;
@@ -48,6 +46,5 @@ public class Cliente {
         this.activo = activo;
     }
     
-    
-
+   
 }
