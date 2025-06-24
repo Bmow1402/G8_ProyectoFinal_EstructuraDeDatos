@@ -19,20 +19,40 @@ public class Rutina {
         }
     }
 
-    //agrega un usuario a la pila (al principio)
-    public void apilarUsuario() {
-        Usuario u = new Usuario();
-        u.setNombre(JOptionPane.showInputDialog("Nombre:"));
-        u.setApellidos(JOptionPane.showInputDialog("Apellidos:"));
-        u.setNickname(JOptionPane.showInputDialog("Usuario (nickname):"));
-        u.setPassword(JOptionPane.showInputDialog("Contraseña:"));
+    public void apilarCliente() {
+        Cliente c = new Cliente();
+        c.setNombre(JOptionPane.showInputDialog("Nombre:"));
+        c.setApellidos(JOptionPane.showInputDialog("Apellidos:"));
+        c.setNickname(JOptionPane.showInputDialog("Usuario (nickname):"));
+        c.setCiudad(JOptionPane.showInputDialog("Ciudad:"));
+        c.setDireccion(JOptionPane.showInputDialog("Dirección:"));
+        c.setTelefono(JOptionPane.showInputDialog("Teléfono:"));
+        c.setCorreo(JOptionPane.showInputDialog("Correo electrónico:"));
+        c.setTipo("Cliente"); //tipo de usuario
 
         NodoUsuario nuevo = new NodoUsuario();
-        nuevo.setElemento(u);
+        nuevo.setElemento(c);
         nuevo.setSiguiente(cima);
         cima = nuevo;
 
-        JOptionPane.showMessageDialog(null, "\n------✶------\nUsuario agregado.\n------✶------\n");
+        JOptionPane.showMessageDialog(null, "\n------✶------\nCliente agregado.\n------✶------\n");
+    }
+
+    public void apilarMecanico() {
+        Mecanico m = new Mecanico();
+        m.setNombre(JOptionPane.showInputDialog("Nombre del mecánico:"));
+        m.setApellidos(JOptionPane.showInputDialog("Apellidos del mecánico:"));
+        m.setNickname(JOptionPane.showInputDialog("Usuario (nickname):"));
+        m.setEspecialidad(JOptionPane.showInputDialog("Especialidad:"));
+        m.setExperiencia(Integer.parseInt(JOptionPane.showInputDialog("Años de experiencia:")));
+        m.setTipo("Mecanico"); // tipo de usuario
+
+        NodoUsuario nuevo = new NodoUsuario();
+        nuevo.setElemento(m);
+        nuevo.setSiguiente(cima);
+        cima = nuevo;
+
+        JOptionPane.showMessageDialog(null, "\n------✶------\nMecanico agregado.\n------✶------\n.");
     }
 
     public void desapilarUsuario() {
@@ -52,7 +72,9 @@ public class Rutina {
             String s = "";
             NodoUsuario aux = cima;
             while (aux != null) {
-                s += "\n----------------✶-----------------\n" + aux.getElemento().getNombre() + "\n"
+                s += "\n----------------✶-----------------\n"
+                        + "Tipo de usuario: " + aux.getElemento().getTipo() + "\n"
+                        + aux.getElemento().getNombre() + "\n"
                         + aux.getElemento().getApellidos() + "\n"
                         + aux.getElemento().getNickname() + "\n"
                         + (aux.getElemento().isActivo() ? "Activo" : "Inactivo");
@@ -61,6 +83,72 @@ public class Rutina {
             JOptionPane.showMessageDialog(null, "Usuarios en la pila:\n\n" + s);
         } else {
             JOptionPane.showMessageDialog(null, "\n------✶------\nNo se puede mostrar los usuarios, la pila está vacía.\n------✶------\n");
+        }
+    }
+
+    public void mostrarMecanicos() {
+        if (esVacia()) {
+            JOptionPane.showMessageDialog(null, "\n------✶------\nNo hay usuarios en la pila.\n------✶------\n");
+            return;
+        }
+
+        String s = "";
+        NodoUsuario aux = cima;
+
+        while (aux != null) {
+            Usuario u = aux.getElemento();
+
+            // Verifica si el objeto es instancia de Mecanico
+            if (u instanceof Mecanico) {
+                Mecanico m = (Mecanico) u;
+                s += "\n----------------✶-----------------\n";
+                s += "Nombre: " + m.getNombre() + " " + m.getApellidos() + "\n";
+                s += "Nickname: " + m.getNickname() + "\n";
+                s += "Especialidad: " + m.getEspecialidad() + "\n";
+                s += "Años de experiencia: " + m.getExperiencia() + "\n";
+                s += "Estado: " + (m.isActivo() ? "Activo" : "Inactivo") + "\n";
+            }
+
+            aux = aux.getSiguiente();
+        }
+
+        if (s==null) {
+            JOptionPane.showMessageDialog(null, "No hay mecánicos registrados.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista de Mecánicos:\n" + s);
+        }
+    }
+
+    public void mostrarClientes() {
+        if (esVacia()) {
+            JOptionPane.showMessageDialog(null, "\n------✶------\nNo hay usuarios en la pila.\n------✶------\n");
+            return;
+        }
+
+        String s = "";
+        NodoUsuario aux = cima;
+
+        while (aux != null) {
+            Usuario u = aux.getElemento();
+ 
+            if (u.getTipo() != null && u.getTipo().equals("Cliente")) {
+                s += "\n----------------✶-----------------\n";
+                s += "Nombre: " + u.getNombre() + " " + u.getApellidos() + "\n";
+                s += "Nickname: " + u.getNickname() + "\n";
+                s += "Ciudad: " + u.getNickname() + "\n";
+                s += "Direccion: " + u.getNickname() + "\n";
+                s += "Correo electronico: " + u.getNickname() + "\n";
+                s += "Telefono: " + u.getNickname() + "\n";
+                s += "Estado: " + (u.isActivo() ? "Activo" : "Inactivo") + "\n";
+            }
+
+            aux = aux.getSiguiente();
+        }
+
+        if (s==null) {
+            JOptionPane.showMessageDialog(null, "No hay clientes registrados.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista de Clientes:\n" + s);
         }
     }
 

@@ -1,35 +1,36 @@
 package g8_motofix_proyectofinal.Usuarios;
 
-public class Usuario {
+//esta clase hereda de usuario
+public class Mecanico extends Usuario {
 
-    public String nombre;
-    public String apellidos;
-    public String nickname;
-    public String password;
-    public boolean activo;
-    private String tipo; // NUEVO
+    private String especialidad;
+    private int experiencia;
 
-    public Usuario() {
-        this.nombre = "";
-        this.apellidos = "";
-        this.nickname = "";
-        this.password = "";
-        this.activo = true;
+    public Mecanico() {
+        this.especialidad = "";
+        this.experiencia = 0;
     }
 
+    @Override
     public String mostrarInfo() {
-        return "Nombre: " + nombre + " " + apellidos
-                + "\nNickname: " + nickname
-                + "\nTipo: " + tipo
-                + "\nEstado: " + (activo ? "Activo" : "Inactivo");
+        return super.mostrarInfo() + "\nEspecialidad: " + especialidad
+                + "\nAños de experiencia: " + experiencia + "\n";
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getEspecialidad() {
+        return especialidad;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public int getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(int experiencia) {
+        this.experiencia = experiencia;
     }
 
     public String getNombre() {
@@ -71,5 +72,7 @@ public class Usuario {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+    
 
+  
 }

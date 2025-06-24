@@ -8,27 +8,61 @@ public class MenuUsuario {
     public Rutina r = new Rutina();
 
     public void mostrarMenu() {
-        String[] opciones = {"Agregar usuario", "Eliminar Usuario", "Mostrar Usuarios", "Inactivar Usuarios por nickname", "Salir"};
-        opcion = (String) (JOptionPane.showInputDialog(null, "Seleccione una opción",
-                "Menú Principal - MotoFix", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]));
-        if (opcion.equals("Agregar usuario")) {
-            r.apilarUsuario();
+        String[] opciones = {
+            "Agregar Cliente",
+            "Agregar Mecánico",
+            "Mostrar Clientes",
+            "Mostrar Mecanicos",
+            "Mostrar Todos",
+            "Inactivar por Nickname",
+            "Eliminar Usuario (desapilar)",
+            "Salir"
+        };
+
+        opcion = (String) JOptionPane.showInputDialog(
+                null,
+                "Seleccione una opción",
+                "Menú de Usuarios",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
+        );
+
+        if (opcion == null) {
+            return;
+        }
+
+        if (opcion.equals("Agregar Cliente")) {
+            r.apilarCliente();
             mostrarMenu();
-        } else if (opcion.equals("Eliminar Usuario")) {
-            r.desapilarUsuario();
+        } else if (opcion.equals("Agregar Mecánico")) {
+            r.apilarMecanico();
             mostrarMenu();
-        } else if (opcion.equals("Mostrar Usuarios")) {
+
+        } else if (opcion.equals("Mostrar Clientes")) {
+            r.mostrarClientes();
+            mostrarMenu();
+
+        } else if (opcion.equals("Mostrar Mecanicos")) {
+            r.mostrarMecanicos();
+            mostrarMenu();
+
+        } else if (opcion.equals("Mostrar Todos")) {
             r.mostrarUsuarios();
             mostrarMenu();
-        } else if (opcion.equals("Inactivar Usuarios por nickname")) {
+
+        } else if (opcion.equals("Inactivar por Nickname")) {
             r.inactivarUsuario();
             mostrarMenu();
+
+        } else if (opcion.equals("Eliminar Usuario (desapilar)")) {
+            r.desapilarUsuario();
+            mostrarMenu();
+
         } else if (opcion.equals("Salir")) {
+            JOptionPane.showMessageDialog(null, "Gracias por usar el sistema MotoFix.");
             System.exit(0);
         }
     }
 }
-
-
-
-
