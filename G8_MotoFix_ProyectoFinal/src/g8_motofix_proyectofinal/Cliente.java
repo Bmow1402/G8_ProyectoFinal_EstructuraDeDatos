@@ -1,6 +1,5 @@
-package g8_motofix_proyectofinal.Usuarios;
+package g8_motofix_proyectofinal;
 
-//esta clase hereda de usuario
 public class Cliente extends Usuario {
 
     private String ciudad;
@@ -9,6 +8,7 @@ public class Cliente extends Usuario {
     private String correo;
 
     public Cliente() {
+        super();
         this.ciudad = "";
         this.direccion = "";
         this.telefono = "";
@@ -17,9 +17,11 @@ public class Cliente extends Usuario {
 
     @Override
     public String mostrarInfo() {
-        return super.mostrarInfo() + "\nCiudad: " + ciudad + "\nDirección: " + direccion
-                + "\nTeléfono: " + telefono + "\nCorreo: " + correo + "\n";
-
+        return super.mostrarInfo()
+                + "Ciudad: " + ciudad + "\n"
+                + "Dirección: " + direccion + "\n"
+                + "Teléfono: " + telefono + "\n"
+                + "Correo electrónico: " + correo + "\n";
     }
 
     public String getCiudad() {

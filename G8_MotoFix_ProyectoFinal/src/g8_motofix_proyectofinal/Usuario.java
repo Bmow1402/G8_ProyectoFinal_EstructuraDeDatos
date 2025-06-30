@@ -1,36 +1,35 @@
-package g8_motofix_proyectofinal.Usuarios;
+package g8_motofix_proyectofinal;
 
-//esta clase hereda de usuario
-public class Mecanico extends Usuario {
+public class Usuario {
 
-    private String especialidad;
-    private int experiencia;
+    public String nombre;
+    public String apellidos;
+    public String nickname;
+    public String password;
+    public boolean activo;
+    private String tipo; //tipo de usuario, ya sea mecanico / cliente o personal administrativo
 
-    public Mecanico() {
-        this.especialidad = "";
-        this.experiencia = 0;
+    public Usuario() {
+        this.nombre = "";
+        this.apellidos = "";
+        this.nickname = ""; 
+        this.password = "";
+        this.activo = true;
     }
 
-    @Override
     public String mostrarInfo() {
-        return super.mostrarInfo() + "\nEspecialidad: " + especialidad
-                + "\nAños de experiencia: " + experiencia + "\n";
+        return "Nombre: " + nombre + " " + apellidos + "\n"
+                + "Nickname: " + nickname + "\n"
+                + "Tipo: " + tipo + "\n"
+                + "Estado: " + (activo ? "Activo" : "Inactivo") + "\n";
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public int getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(int experiencia) {
-        this.experiencia = experiencia;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -72,7 +71,5 @@ public class Mecanico extends Usuario {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
 
-  
 }

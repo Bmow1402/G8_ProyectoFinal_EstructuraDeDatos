@@ -1,9 +1,7 @@
-
-package g8_motofix_proyectofinal.Usuarios;
-
+package g8_motofix_proyectofinal;
 
 public class NodoUsuario {
-    
+
     public Usuario elemento;
     public NodoUsuario siguiente;
 
@@ -26,7 +24,5 @@ public class NodoUsuario {
     public void setSiguiente(NodoUsuario siguiente) {
         this.siguiente = siguiente;
     }
-    
-    
-    
+
 }

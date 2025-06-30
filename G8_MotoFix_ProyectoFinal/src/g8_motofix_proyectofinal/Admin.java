@@ -1,35 +1,27 @@
-package g8_motofix_proyectofinal.Usuarios;
 
-public class Usuario {
+package g8_motofix_proyectofinal;
 
-    public String nombre;
-    public String apellidos;
-    public String nickname;
-    public String password;
-    public boolean activo;
-    private String tipo; // NUEVO
 
-    public Usuario() {
-        this.nombre = "";
-        this.apellidos = "";
-        this.nickname = "";
-        this.password = "";
-        this.activo = true;
+public class Admin extends Usuario {
+        private String puesto;
+
+    public Admin() {
+        super ();
+        this.puesto = "";
     }
 
+        @Override
     public String mostrarInfo() {
-        return "Nombre: " + nombre + " " + apellidos
-                + "\nNickname: " + nickname
-                + "\nTipo: " + tipo
-                + "\nEstado: " + (activo ? "Activo" : "Inactivo");
+        return super.mostrarInfo()
+                + "Puesto: " + puesto + "\n";
+    }
+    
+    public String getPuesto() {
+        return puesto;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
     }
 
     public String getNombre() {
@@ -72,4 +64,5 @@ public class Usuario {
         this.activo = activo;
     }
 
+    
 }
