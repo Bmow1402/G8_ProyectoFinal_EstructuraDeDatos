@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 public class G8_MotoFix_ProyectoFinal {
 
     public static void main(String[] args) {
-
         MenuPrincipal menu = new MenuPrincipal();
         menu.mostrarMenu();
     }
@@ -62,4 +61,4 @@ PUNTOS A MEJORA
 - Arreglar los metodos de los usuarios para cada catalogo
 editar la estructura del codigo para que este mas ordenado
 
-     */
+*/

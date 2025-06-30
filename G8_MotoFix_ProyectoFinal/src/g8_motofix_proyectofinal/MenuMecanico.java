@@ -42,7 +42,7 @@ public class MenuMecanico {
             mostrarMenu();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Opción inválida.");
+            JOptionPane.showMessageDialog(null, "Opción inválida :c");
             mostrarMenu();
         }
     }

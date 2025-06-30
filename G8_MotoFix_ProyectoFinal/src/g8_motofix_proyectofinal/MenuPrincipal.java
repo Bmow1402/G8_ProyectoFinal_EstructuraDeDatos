@@ -47,14 +47,14 @@ public class MenuPrincipal {
             mostrarMenu();
 
         } else if (opcion.equals("Catálogo de Motocicletas")) {
-            //mostrar el menu correspondiente
+            //mostrar el menu de motos
             mostrarMenu();
         } else if (opcion.equals("Catálogo de Servicios")) {
-            //mostrar el menu correspondiente
+            //mostrar el menu de servicios
             mostrarMenu();
 
         } else if (opcion.equals("Salir")) {
-            JOptionPane.showMessageDialog(null, "Gracias por usar el sistema MotoFix.");
+            JOptionPane.showMessageDialog(null, "Gracias por usar el sistema MotoFix ");
             System.exit(0);
         }
     }
