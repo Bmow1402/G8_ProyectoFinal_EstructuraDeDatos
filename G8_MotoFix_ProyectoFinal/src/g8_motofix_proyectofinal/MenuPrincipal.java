@@ -7,7 +7,10 @@ public class MenuPrincipal {
     MenuCliente menuCliente = new MenuCliente();
     MenuAdmin menuAdmin = new MenuAdmin();
     MenuMecanico menuMecanico = new MenuMecanico();
+    MenuServicio menuServicio = new MenuServicio ();
+    MenuMoto menuMoto = new MenuMoto ();
 
+    
     public String opcion = "";
 
     public void mostrarMenu() {
@@ -47,14 +50,14 @@ public class MenuPrincipal {
             mostrarMenu();
 
         } else if (opcion.equals("Catálogo de Motocicletas")) {
-            //mostrar el menu de motos
+            menuMoto.mostrarMenu();
             mostrarMenu();
         } else if (opcion.equals("Catálogo de Servicios")) {
-            //mostrar el menu de servicios
+            menuServicio.mostrarMenu();
             mostrarMenu();
 
         } else if (opcion.equals("Salir")) {
-            JOptionPane.showMessageDialog(null, "Gracias por usar el sistema MotoFix ");
+            JOptionPane.showMessageDialog(null, "Gracias por usar el sistema MotoFix! ^^ ");
             System.exit(0);
         }
     }

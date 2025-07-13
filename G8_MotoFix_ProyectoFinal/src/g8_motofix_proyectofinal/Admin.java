@@ -1,6 +1,4 @@
-
 package g8_motofix_proyectofinal;
-
 
 public class Admin extends Usuario {
         private String puesto;

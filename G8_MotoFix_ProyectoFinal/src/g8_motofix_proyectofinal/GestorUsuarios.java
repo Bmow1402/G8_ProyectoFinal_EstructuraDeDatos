@@ -1,11 +1,11 @@
 package g8_motofix_proyectofinal;
-
 import javax.swing.JOptionPane;
+
 
 public class GestorUsuarios {
 
     private NodoUsuario cima;
-
+    
     public GestorUsuarios() {
         this.cima = null;
     }
@@ -31,7 +31,7 @@ public class GestorUsuarios {
         c.setTipo("Cliente");
 
         apilar(c);
-        JOptionPane.showMessageDialog(null, "Cliente agregado.");
+        JOptionPane.showMessageDialog(null, "・ ✧・Cliente agregado・ ✧・");
     }
 
     public void agregarMecanico() {
@@ -44,7 +44,7 @@ public class GestorUsuarios {
         m.setTipo("Mecanico");
 
         apilar(m);
-        JOptionPane.showMessageDialog(null, "Mecánico agregado.");
+        JOptionPane.showMessageDialog(null, "・ ✧・Mecánico agregado・ ✧・");
     }
 
     public void agregarAdmin() {
@@ -56,7 +56,7 @@ public class GestorUsuarios {
         a.setTipo("Admin");
 
         apilar(a);
-        JOptionPane.showMessageDialog(null, "Administrador agregado.");
+        JOptionPane.showMessageDialog(null, "・ ✧・Administrador agregado・ ✧・");
     }
 
     private void apilar(Usuario u) {
@@ -69,7 +69,7 @@ public class GestorUsuarios {
     // Método para mostrar usuarios de un tipo específico
     public void mostrarUsuariosPorTipo(String tipoBuscado) {
         if (esVacia()) {
-            JOptionPane.showMessageDialog(null, "No hay usuarios registrados.");
+            JOptionPane.showMessageDialog(null, "No hay usuarios registrados :c");
             return;
         }
 
@@ -78,7 +78,7 @@ public class GestorUsuarios {
 
         while (aux != null) {
             if (aux.getElemento().getTipo().equals(tipoBuscado)) {
-                resultado += "\n------------------------\n";
+                resultado += "\n⎯⎯⎯⎯⎯⎯⎯⎯ ・ ✧・ ⎯⎯⎯⎯⎯⎯⎯⎯\n";
                 resultado += aux.getElemento().mostrarInfo();
             }
             aux = aux.getSiguiente();
@@ -95,7 +95,7 @@ public class GestorUsuarios {
         String nick = JOptionPane.showInputDialog("Ingrese el nickname del usuario a inactivar: ");
 
         if (nick == null || nick.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Lo siento, debe ingresar un nickname válido");
+            JOptionPane.showMessageDialog(null, "Lo siento, debes ingresar un nickname válido :c");
             return;
         }
 
@@ -105,19 +105,63 @@ public class GestorUsuarios {
         while (aux != null) {
             if (nick.equals(aux.getElemento().getNickname())) {
                 if (!aux.getElemento().isActivo()) {
-                    JOptionPane.showMessageDialog(null, "Ups, parece que el usuario ya está inactivo");
+                    JOptionPane.showMessageDialog(null, "Ups, parece que el usuario ya está inactivo :c");
                     return;
                 }
-
-                // testeo de datos existentess
-                //if (tieneDatosRelacionados(aux.getElemento())) {
-                //     JOptionPane.showMessageDialog(null, "No se puede inactivar el usuario porque tiene datos relacionados.");
-                //     return;
-                // }
-                
                 aux.getElemento().setActivo(false);
-                JOptionPane.showMessageDialog(null, "Usuario inactivado.");
+                JOptionPane.showMessageDialog(null, "・ ✧・Usuario inactivado・ ✧・");
                 encontrado = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "Usuario no encontrado :c");
+        }
+    }
+
+    public void editarUsuario() {
+        String nick = JOptionPane.showInputDialog("Ingrese el nickname del usuario a editar:");
+
+        if (nick == null) {
+            JOptionPane.showMessageDialog(null, "Debes ingresar un nickname válido. :c ");
+            return;
+        }
+
+        NodoUsuario aux = cima;
+        boolean encontrado = false;
+
+        while (aux != null) {
+            Usuario u = aux.getElemento();
+            if (nick.equals(u.getNickname())) {
+                encontrado = true;
+
+                if (u.getTipo().equals("Cliente")) {
+                    Cliente c = (Cliente) u;
+                    c.setNombre(JOptionPane.showInputDialog("Nuevo nombre:", c.getNombre()));
+                    c.setApellidos(JOptionPane.showInputDialog("Nuevos apellidos:", c.getApellidos()));
+                    c.setCiudad(JOptionPane.showInputDialog("Nueva ciudad:", c.getCiudad()));
+                    c.setDireccion(JOptionPane.showInputDialog("Nueva dirección:", c.getDireccion()));
+                    c.setTelefono(JOptionPane.showInputDialog("Nuevo teléfono:", c.getTelefono()));
+                    c.setCorreo(JOptionPane.showInputDialog("Nuevo correo:", c.getCorreo()));
+
+                } else if (u.getTipo().equals("Mecanico")) {
+                    Mecanico m = (Mecanico) u;
+                    m.setNombre(JOptionPane.showInputDialog("Nuevo nombre:", m.getNombre()));
+                    m.setApellidos(JOptionPane.showInputDialog("Nuevos apellidos:", m.getApellidos()));
+                    m.setEspecialidad(JOptionPane.showInputDialog("Nueva especialidad:", m.getEspecialidad()));
+                    String expStr = JOptionPane.showInputDialog("Años de experiencia:", Integer.toString(m.getExperiencia()));
+                    m.setExperiencia(Integer.parseInt(expStr));
+
+                } else if (u.getTipo().equals("Admin")) {
+                    Admin a = (Admin) u;
+                    a.setNombre(JOptionPane.showInputDialog("Nuevo nombre:", a.getNombre()));
+                    a.setApellidos(JOptionPane.showInputDialog("Nuevos apellidos:", a.getApellidos()));
+                    a.setPuesto(JOptionPane.showInputDialog("Nuevo puesto:", a.getPuesto()));
+                }
+
+                JOptionPane.showMessageDialog(null, "・ ✧・Usuario editado correctamente・ ✧・");
                 break;
             }
             aux = aux.getSiguiente();

@@ -58,7 +58,5 @@ public class G8_MotoFix_ProyectoFinal {
 
 PUNTOS A MEJORA
 
-- Arreglar los metodos de los usuarios para cada catalogo
-editar la estructura del codigo para que este mas ordenado
-
+- Trabajar clase moto / servicio y los nodos de cada una, hacer una clase de gestion para cada una una vez el profesor responda la consulta del tipo de almacenamiento
 */

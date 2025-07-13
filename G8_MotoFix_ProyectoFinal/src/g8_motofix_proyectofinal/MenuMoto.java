@@ -1,8 +1,7 @@
 package g8_motofix_proyectofinal;
-
 import javax.swing.JOptionPane;
 
-public class MenuCliente {
+public class MenuMoto {
 
     private int opc;
     private GestorUsuarios gestor = new GestorUsuarios();
@@ -10,32 +9,32 @@ public class MenuCliente {
     public void mostrarMenu() {
         
         opc = Integer.parseInt(JOptionPane.showInputDialog(null,
-                "・✧・ MENÚ CLIENTES ・✧・\n\n"
-                + "1. Agregar Cliente\n"
-                + "2. Editar Clientes\n"
-                + "3. Inactivar Clientes\n"
-                + "4. Mostrar Clientes\n"
+                "・✧・ MENÚ MOTOS ・✧・\n\n"
+                + "1. Agregar Motocicleta\n"
+                + "2. Editar Motocicletsa\n"
+                + "3. Inactivar Motocicletas\n"
+                + "4. Mostrar Motocicletas\n"
                 + "5. Volver\n\n"
                 + "Digite su opción:"));
 
         switch (opc) {
             case 1: {
-                gestor.agregarCliente();
+                //  gestor.agregarMoto();
                 mostrarMenu();
                 break;
             }
             case 2: {
-                gestor.editarUsuario();
+                // gestor.editarMoto();
                 mostrarMenu();
                 break;
             }
             case 3: {
-                gestor.inactivarUsuario();
+                //  gestor.inactivarMoto();
                 mostrarMenu();
                 break;
             }
             case 4: {
-                gestor.mostrarUsuariosPorTipo("Cliente");
+                //  gestor.mostrarMoto();
                 mostrarMenu();
                 break;
             }
